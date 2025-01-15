@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Rent Affordability Calculator</h1>
+        <p>You can afford to pay up to <strong>${{ rent | round(2) }}</strong> in rent.</p>
+        <a href="/">Go back</a>
+    </div>
+</body>
+</html>

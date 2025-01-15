@@ -1,0 +1,93 @@
+/* General styles for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8f8; /* Soft blue-green background */
+    color: #033333; /* Dark blue-green text */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full height */
+}
+
+/* Center the main container and add padding */
+.container {
+    display: grid; /* Use grid to center content inside the container */
+    justify-items: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #67d9d5; /* Lighter blue-green border */
+    border-radius: 10px;
+    background-color: #ffffff; /* White background for contrast */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 550px; /* Set a max-width to avoid stretching too much */
+    width: 100%; /* Take up full width available up to the max-width */
+}
+
+/* Style headings */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #026666; /* Blue-green heading */
+}
+
+/* Style the form grid */
+form {
+    display: grid; /* Enable grid layout */
+    grid-template-columns: 1.5fr 1.2fr 1fr; /* Two columns: one for labels, one for inputs */
+    gap: 15px; /* Add consistent spacing between elements */
+    align-items: center; /* Vertically align items */
+    width: 100%; /* Make form take up full width of container */
+}
+
+/* Style labels to align to the left */
+label {
+    font-size: 1.2rem;
+    margin-right: 15px; /* Adds space between label and input */
+    width: 100%; /* Makes the label take up full width of its grid cell */
+    text-align: left; /* Aligns the label text to the right */
+}
+
+/* Style input fields */
+input[type="text"], select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #67d9d5;
+    border-radius: 5px;
+    width: 100%; /* Makes the input field and dropdown take up 100% of the grid cell */
+    box-sizing: border-box;
+}
+
+/* Style buttons */
+button {
+    background-color: #026666;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    grid-column: span 3; /* Make the button span across both columns */
+}
+
+button:hover {
+    background-color: #044444; /* Darker blue-green on hover */
+}
+
+/* Style links */
+a {
+    text-decoration: none;
+    color: #026666;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+a:hover {
+    color: #044444; /* Darker blue-green on hover */
+}

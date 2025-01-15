@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Affordability Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Rent Affordability Calculator</h1>
+        <form id="rentForm">
+            <label for="income">Enter your income:</label>
+            <input type="text" id="income" name="income" required placeholder="$0">
+            <select id="frequency" name="frequency">
+                <option value="monthly">Per Month</option>
+                <option value="yearly">Per Year</option>
+            </select>
+
+            <label for="debtPayments">Debt Payments (loans, credit cards, etc):</label>
+            <input type="text" id="debtPayments" name="debtPayments" placeholder="$0">
+
+            <button type="submit">Calculate</button>
+        </form>
+        
+        <div id="result" style="margin-top: 20px; font-size: 1.2rem; color: #026666;"></div>
+    </div>
+
+    <script>
+        // JavaScript to handle form submission
+        document.getElementById('rentForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            const formData = new FormData(this);
+            const resultDiv = document.getElementById('result');
+
+            try {
+                const response = await fetch('/calculate', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    resultDiv.textContent = `You can afford to pay up to $${data.rent} in rent per month.`;
+                } else {
+                    resultDiv.textContent = data.error || 'An error occurred. Please try again.';
+                }
+            } catch (error) {
+                resultDiv.textContent = 'An error occurred. Please try again.';
+            }
+        });
+    </script>
+</body>
+</html>
