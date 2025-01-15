@@ -36,4 +36,4 @@ def calculate():
         return jsonify({"error": "Invalid input. Please enter valid amounts."}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
